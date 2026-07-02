@@ -269,29 +269,86 @@ if df_data is not None:
 
 # ── Theory Reference ──────────────────────────────────────────────────────────
 with st.expander("📚 Mass Transfer Theory Reference"):
-    st.markdown("""
-    ### Fick's First Law
-    Describes steady-state diffusion flux:
-    $$J = -D \\frac{dC}{dx}$$
 
-    ### Fick's Second Law
-    Describes transient diffusion:
-    $$\\frac{\\partial C}{\\partial t} = D \\nabla^2 C$$
+    st.markdown(r"""
+### Fick's First Law
 
-    ### Arrhenius Equation for Diffusivity
-    $$D(T) = D_0 \\, e^{-E_a / RT}$$
-    - $D_0$ = pre-exponential factor (m²/s)
-    - $E_a$ = activation energy (J/mol)
-    - $R$ = 8.314 J/(mol·K)
-    - $T$ = temperature (K)
+Describes steady-state diffusion flux
 
-    ### Effective Diffusivity with Pressure Correction
-    $$D_{eff} = D(T) \\cdot \\left(1 + \\alpha \\ln\\frac{P}{P_{ref}}\\right)$$
+$$
+J=-D\frac{dC}{dx}
+$$
 
-    ### Particle Size Effect
-    $$D_{eff} = D(T) \\bigg/ \\left(1 + \\beta \\frac{d_p}{d_{p,ref}}\\right)$$
-    """)
+**Units**
 
+- **J** = Diffusion Flux (**mol·m⁻²·s⁻¹**)
+- **D** = Diffusion Coefficient (**m²/s**)
+- **C** = Hydrogen Concentration (**mol/m³**)
+- **x** = Diffusion Distance (**m**)
+
+---
+
+### Fick's Second Law
+
+Describes transient diffusion
+
+$$
+\frac{\partial C}{\partial t}=D\nabla^2C
+$$
+
+**Units**
+
+- **C** = Hydrogen Concentration (**mol/m³**)
+- **t** = Time (**s**)
+- **D** = Diffusion Coefficient (**m²/s**)
+- **∇²** = Laplacian Operator (**m⁻²**)
+
+---
+
+### Arrhenius Equation for Diffusivity
+
+$$
+D(T)=D_0e^{-E_a/(RT)}
+$$
+
+**Units**
+
+- **D(T)** = Diffusion Coefficient (**m²/s**)
+- **D₀** = Pre-exponential Factor (**m²/s**)
+- **Eₐ** = Activation Energy (**J/mol**)
+- **R** = Universal Gas Constant (**8.314 J·mol⁻¹·K⁻¹**)
+- **T** = Absolute Temperature (**K**)
+
+---
+
+### Effective Diffusivity with Pressure Correction
+
+$$
+D_{eff}=D(T)\left(1+\alpha\ln\left(\frac{P}{P_{ref}}\right)\right)
+$$
+
+**Units**
+
+- **Dₑff** = Effective Diffusion Coefficient (**m²/s**)
+- **P** = Pressure (**bar**)
+- **Pref** = Reference Pressure (**bar**)
+- **α** = Pressure Correction Factor (**Dimensionless**)
+
+---
+
+### Particle Size Effect
+
+$$
+D_{eff}=\frac{D(T)}{1+\beta\left(\frac{d_p}{d_{p,ref}}\right)}
+$$
+
+**Units**
+
+- **Dₑff** = Effective Diffusion Coefficient (**m²/s**)
+- **dₚ** = Particle Diameter (**µm**)
+- **dₚref** = Reference Particle Diameter (**µm**)
+- **β** = Particle Size Correction Factor (**Dimensionless**)
+""")
 # ── Footer ────────────────────────────────────────────────────────────────────
 st.markdown("---")
 st.caption(
